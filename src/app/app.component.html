@@ -1,0 +1,66 @@
+<div class="container primary-container">
+  <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+    <div class="form-row">
+      <div class="col-md-4 mb-3">
+        <label for="firstName">First name</label>
+        <input type="text" class="form-control" formControlName="firstName" [ngClass]="{ 'is-invalid': isSubmitted && f.firstName.errors }"
+          placeholder="First name">
+        <div class="invalid-feedback" *ngIf="isSubmitted && f.firstName.errors">
+          Please provide a first name.
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="lastName">Last name</label>
+        <input type="text" class="form-control" formControlName="lastName" [ngClass]="{ 'is-invalid': isSubmitted && f.lastName.errors }"
+          placeholder="Last name">
+        <div class="invalid-feedback" *ngIf="isSubmitted && f.lastName.errors">
+          Please provide a last name.
+        </div>
+      </div>
+      <div class="col-md-4 mb-3">
+        <label for="email">Email</label>
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text">@</span>
+          </div>
+          <input type="text" class="form-control" formControlName="email" [ngClass]="{ 'is-invalid': isSubmitted && f.email.errors }"
+            placeholder="Email ID">
+          <div class="invalid-feedback" *ngIf="isSubmitted && f.email.errors">
+            Please provide a email Id.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="col-md-6 mb-3">
+        <label for="city">City</label>
+        <input type="text" class="form-control" formControlName="city" [ngClass]="{ 'is-invalid': isSubmitted && f.city.errors }"
+          placeholder="City">
+        <div class="invalid-feedback" *ngIf="isSubmitted && f.city.errors">
+          Please provide a valid city.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="state">State</label>
+        <input type="text" class="form-control" formControlName="state" [ngClass]="{ 'is-invalid': isSubmitted && f.state.errors }"
+          placeholder="State">
+        <div class="invalid-feedback" *ngIf="isSubmitted && f.state.errors">
+          Please provide a valid state.
+        </div>
+      </div>
+      <div class="col-md-3 mb-3">
+        <label for="zip">Zip</label>
+        <input type="text" class="form-control" formControlName="zip" [ngClass]="{ 'is-invalid': isSubmitted && f.zip.errors }" placeholder="State"
+          placeholder="Zip">
+        <div class="invalid-feedback" *ngIf="isSubmitted && f.zip.errors">
+          Please provide a valid zip.
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Submit form</button>
+  </form>
+
+  <div class="primary-container">
+    <app-table [user]="user"></app-table>
+  </div>
+</div>
